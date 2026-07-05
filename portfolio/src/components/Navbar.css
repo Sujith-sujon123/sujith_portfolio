@@ -1,0 +1,103 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: transparent;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.98);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
